@@ -77,7 +77,7 @@ namespace FinalMarsAutomation.Features
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("01-As a Mars-QA user i would like to add skills i possess")]
         [NUnit.Framework.TestCaseAttribute("Swimming", "Intermediate", null)]
-        [NUnit.Framework.TestCaseAttribute("Dancing", "Expert", null)]
+        [NUnit.Framework.TestCaseAttribute("Dancing", "Beginner", null)]
         [NUnit.Framework.TestCaseAttribute("Chesscoach", "Intermediate", null)]
         public void _01_AsAMars_QAUserIWouldLikeToAddSkillsIPossess(string skill, string level, string[] exampleTags)
         {
@@ -116,8 +116,8 @@ this.ScenarioInitialize(scenarioInfo);
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("02-As a Mars-QA user i would like to update exisiting skills on my Skills section" +
             "")]
-        [NUnit.Framework.TestCaseAttribute("Swimming", "Expert", null)]
-        [NUnit.Framework.TestCaseAttribute("Chesscoach", "Intermediate", null)]
+        [NUnit.Framework.TestCaseAttribute("Java", "Expert", null)]
+        [NUnit.Framework.TestCaseAttribute("C#", "Expert", null)]
         public void _02_AsAMars_QAUserIWouldLikeToUpdateExisitingSkillsOnMySkillsSection(string skill, string level, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
@@ -154,7 +154,7 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("03-As a Mars-QA user i would like to delete existing skills on my Skills section")]
-        [NUnit.Framework.TestCaseAttribute("Swimming", "Expert", null)]
+        [NUnit.Framework.TestCaseAttribute("Java", "Expert", null)]
         public void _03_AsAMars_QAUserIWouldLikeToDeleteExistingSkillsOnMySkillsSection(string skill, string level, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;

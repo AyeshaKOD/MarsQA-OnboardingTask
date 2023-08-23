@@ -1,5 +1,6 @@
 ﻿using FinalMarsAutomation.Utilities;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,7 +23,7 @@ namespace FinalMarsAutomation.Pages
         private static IWebElement addedLevelText => driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table/tbody[last()]/tr/td[2]"));
         
         private static IWebElement updateSkillIcon => driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table/tbody/tr/td[3]/span[1]/i"));
-        private static IWebElement updateLevelText => driver.FindElement(By.Name("level"));
+        private static IWebElement updateLevelDropdown => driver.FindElement(By.Name("level"));
         private static IWebElement updateSkillText => driver.FindElement(By.Name("name"));
         
         private static IWebElement finalUpdateButton => driver.FindElement(By.XPath("//input[@value='Update']"));
@@ -65,9 +66,9 @@ namespace FinalMarsAutomation.Pages
             updateSkillText.Clear();
             updateSkillText.SendKeys(skill);
 
-            
-            updateLevelText.Clear();
-            updateLevelText.SendKeys(sLevel);
+            //select level from the drop down 
+            SelectElement element = new SelectElement(updateLevelDropdown);
+            element.SelectByText(sLevel);
 
             
             finalUpdateButton.Click();                                  

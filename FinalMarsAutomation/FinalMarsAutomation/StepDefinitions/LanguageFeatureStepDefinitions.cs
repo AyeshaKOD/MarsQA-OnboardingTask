@@ -55,9 +55,14 @@ namespace FinalMarsAutomation.StepDefinitions
         public void ThenShouldBeAbleToSuccessfullyEditListedOnMyUserProfile(string language, string level)
         {
             String updatedLanguage=languagePageObject.GetVerifyLanguageUpdated();
-            String updatedLevel=languagePageObject.GetVerifyLevelUpdated();
+            //trim variable to avoid white space 
+            updatedLanguage= updatedLanguage.Trim();
+            language=language.Trim();
+            string updatedLevelFText = languagePageObject.GetVerifyLevelUpdated();
+            updatedLevelFText = updatedLevelFText.Trim();
+            level=level.Trim();
             Assert.AreEqual(language, updatedLanguage, "Actual language and updated language do not match");
-            Assert.AreEqual(level, updatedLevel, "Actual level and updated level do not match");
+            Assert.AreEqual(level, updatedLevelFText, "Actual level and updated level do not match");
         }
 
         [When(@"I delete existing  '([^']*)' , '([^']*)'  on  my user profile")]
@@ -70,7 +75,11 @@ namespace FinalMarsAutomation.StepDefinitions
         public void ThenShouldBeAbleToSuccessfullyDeleteASelectedFromMyUserProfile(string language, string level)
         {
             String deletedLanguage=languagePageObject.GetVerifyDeletedLanguage();
+            //trim this variable to avoid white space 
+            deletedLanguage= deletedLanguage.Trim();
             String deletedLevel=languagePageObject.GetVerifyDeletedLevel();
+            //trim this variable to avoid white space 
+            deletedLevel = deletedLevel.Trim();
             Assert.AreNotEqual(language, deletedLanguage, "Actual language and expected language do not match");
             Assert.AreNotEqual(level, deletedLevel, "Actual level and expected level do not match");
 

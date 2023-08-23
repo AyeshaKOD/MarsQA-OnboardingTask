@@ -12,7 +12,7 @@ Scenario Outline: 01-As a Mars-QA user i would like to add skills i possess
 	Examples: 
 	| Skill      | Level        |
 	| Swimming   | Intermediate |
-	| Dancing    | Expert       |
+	| Dancing    | Beginner     |
 	| Chesscoach | Intermediate |
 
 Scenario Outline: 02-As a Mars-QA user i would like to update exisiting skills on my Skills section
@@ -23,8 +23,8 @@ Scenario Outline: 02-As a Mars-QA user i would like to update exisiting skills o
 
 	Examples: 
 	| Skill      | Level        |
-	| Swimming   | Expert       |
-	| Chesscoach | Intermediate |
+	| Java   | Expert       |
+	| C#		| Expert |
 
 Scenario Outline: 03-As a Mars-QA user i would like to delete existing skills on my Skills section
 	Given I have successfully logged in to Mars url
@@ -34,4 +34,4 @@ Scenario Outline: 03-As a Mars-QA user i would like to delete existing skills on
 
 	Examples: 
 	| Skill    | Level  |
-	| Swimming | Expert |
+	| Java	   | Expert |

@@ -5,7 +5,7 @@
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <BaseOutputPath>C:\IndustryConnect\FinalMarsAutomation\FinalMarsAutomation2023\FinalMarsAutomation\FinalMarsAutomation\obj\Debug\net6.0</BaseOutputPath>
+    <BaseOutputPath>C:\IndustryConnect\MarsQAOnboardingTask\MarsQA-OnboardingTask\FinalMarsAutomation\FinalMarsAutomation\obj\Debug\net6.0</BaseOutputPath>
   </PropertyGroup>
 
   <ItemGroup>

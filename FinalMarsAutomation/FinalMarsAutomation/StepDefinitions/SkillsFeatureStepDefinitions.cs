@@ -42,7 +42,11 @@ namespace FinalMarsAutomation.StepDefinitions
         public void ThenShouldBeAbleToSuccessfullyAddToSkillsSectionOnMyProfilePage(string skill, string sLevel)
         {
             String newSkill = skillsPageObject.GetVerifySkill();
+            newSkill=newSkill.Trim();
+            skill=skill.Trim();
             String newSkillLevel = skillsPageObject.GetVerifySkillLevel();
+            newSkillLevel=newSkillLevel.Trim();
+            sLevel=sLevel.Trim();
             Assert.AreEqual(skill, newSkill, "Actual skill and expected skill do not match");
             Assert.AreEqual(sLevel, newSkillLevel, "Actual level and expected level do not match");
         }
@@ -57,7 +61,11 @@ namespace FinalMarsAutomation.StepDefinitions
         public void ThenShouldBeAbleToSuccessfullyUpdateExistingToSkillsSection(string skill, string sLevel)
         {
             String updatedSkill = skillsPageObject.GetVerifyUpdatedSkill();
+            updatedSkill= updatedSkill.Trim();
+            skill = skill.Trim();
             String updatedSkillLevel = skillsPageObject.GetVerifySkillLevel();
+            updatedSkillLevel= updatedSkillLevel.Trim();
+            //sLevel=sLevel.Trim();
             Assert.AreEqual(skill, updatedSkill, "Actual skill and updated skill do not match");
             Assert.AreEqual(sLevel, updatedSkillLevel, "Actual skill level and updated skill level do not match");
         }
@@ -72,7 +80,12 @@ namespace FinalMarsAutomation.StepDefinitions
         public void ThenShouldBeAbleToSuccessfullyDeleteExistingOnSkillsSectionOfMyProfilePage(string skill, string sLevel)
         {
             string deletedSkillText = skillsPageObject.GetDeletedSkill(skill, sLevel);
+            deletedSkillText= deletedSkillText.Trim();
+            skill=skill.Trim();
+
             string deletedSkillLevelText = skillsPageObject.GetDeletedSkillLevel(skill, sLevel);
+            deletedSkillLevelText= deletedSkillLevelText.Trim();
+            sLevel=sLevel.Trim();
             Assert.AreNotEqual(skill, deletedSkillText, "Actual skill and expected skill do not match");
             Assert.AreNotEqual(sLevel, deletedSkillLevelText, "Actual level and expected level do not match");
         }

@@ -117,7 +117,7 @@ this.ScenarioInitialize(scenarioInfo);
         [NUnit.Framework.TestCaseAttribute("French", "Native/Bilingual", null)]
         [NUnit.Framework.TestCaseAttribute("Tamil", "Fluent", null)]
         [NUnit.Framework.TestCaseAttribute("Hindi", "Fluent", null)]
-        [NUnit.Framework.TestCaseAttribute("English", "Basic", null)]
+        [NUnit.Framework.TestCaseAttribute("sp#gh", "Basic", null)]
         public void _02_AsAMarsUserIShouldBeAbleToEditLanguagesDetailsIHaveAlreadyAddedToMyUserProfile(string language, string level, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
@@ -152,7 +152,7 @@ this.ScenarioInitialize(scenarioInfo);
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("03-As a Mars user i should be able to delete any language i have already added to" +
             " my user profile")]
-        [NUnit.Framework.TestCaseAttribute("Tamil", "Fluent", null)]
+        [NUnit.Framework.TestCaseAttribute("sp#gh", "Basic", null)]
         public void _03_AsAMarsUserIShouldBeAbleToDeleteAnyLanguageIHaveAlreadyAddedToMyUserProfile(string language, string level, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;

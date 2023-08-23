@@ -2,12 +2,14 @@
 using OpenQA.Selenium;
 using System.Diagnostics;
 using FinalMarsAutomation.Utilities;
-using static System.Collections.Specialized.BitVector32;
+using OpenQA.Selenium.Support.UI;
+//using static System.Collections.Specialized.BitVector32;
 
 namespace FinalMarsAutomation.Pages
 {
     public class LanguagePage : CommonDriver
     {
+        
         //identify elements 
         private static IWebElement addNewButton => driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/thead/tr/th[3]/div"));
         private static IWebElement enterLanguageText => driver.FindElement(By.Name("name"));
@@ -17,10 +19,12 @@ namespace FinalMarsAutomation.Pages
         private static IWebElement levelAdded => driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody[last()]/tr/td[2]"));
         private static IWebElement editIcon => driver.FindElement(By.XPath("//td[@class='right aligned']//i[@class='outline write icon']"));
         private static IWebElement getLanguageText => driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody/tr/td/div/div[1]/input"));
-        private static IWebElement getLevelText => driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody/tr/td/div/div[2]/select"));
+        private static IWebElement getLevelTextDropdown => driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody/tr/td/div/div[2]/select"));
+                                                                                        
         private static IWebElement finalUpdateButton => driver.FindElement(By.XPath("//input[@value='Update']"));
-        private static IWebElement updatedLanguageText => driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody[last()]/tr/td[1]"));
-        private static IWebElement updatedLevelText => driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody[last()]/tr/td[2]"));
+        private static IWebElement updatedLanguageText => driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody/tr/td[1]"));
+        private static IWebElement updatedLevelTextDdown => driver.FindElement(By.XPath("//body[1]/div[1]/div[1]/section[2]/div[1]/div[1]/div[1]/div[3]/form[1]/div[2]/div[1]/div[2]/div[1]/table[1]/tbody/tr[1]/td[2]"));
+                                                                                
         private static IWebElement deletedLanguageText => driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody/tr/td[1]"));
         private static IWebElement deletedLevelText => driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody/tr/td[2]"));
         public void AddLanguage(String language, String level)
@@ -56,11 +60,11 @@ namespace FinalMarsAutomation.Pages
             
             getLanguageText.Clear();                                    
             getLanguageText.SendKeys(language);
-            Thread.Sleep(2000);
+            Thread.Sleep(4000);
 
-            
-            getLevelText.Clear();                                   
-            getLevelText.SendKeys(level);
+           // select the elemnt from drop down 
+            SelectElement element = new SelectElement(getLevelTextDropdown);
+            element.SelectByText(level);
             Thread.Sleep(2000);
 
             
@@ -73,11 +77,13 @@ namespace FinalMarsAutomation.Pages
             Thread.Sleep(2000);
             return updatedLanguageText.Text;                                
         }
-        public String GetVerifyLevelUpdated()
+        public string GetVerifyLevelUpdated()
         {
             //retrieve updated level
             Thread.Sleep(2000);
-            return updatedLevelText.Text;                              
+            
+            //return it as a text
+            return updatedLevelTextDdown.Text;
         }
         public void DeleteLanguage( String language, String level)
         {
