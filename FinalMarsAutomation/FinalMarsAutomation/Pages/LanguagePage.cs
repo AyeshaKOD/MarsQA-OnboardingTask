@@ -3,7 +3,7 @@ using OpenQA.Selenium;
 using System.Diagnostics;
 using FinalMarsAutomation.Utilities;
 using OpenQA.Selenium.Support.UI;
-//using static System.Collections.Specialized.BitVector32;
+
 
 namespace FinalMarsAutomation.Pages
 {
