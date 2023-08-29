@@ -1,6 +1,7 @@
 using FinalMarsAutomation.Pages;
 using FinalMarsAutomation.Utilities;
 using NUnit.Framework;
+using OpenQA.Selenium;
 using System;
 using System.Reflection.Emit;
 using TechTalk.SpecFlow;
@@ -30,7 +31,7 @@ namespace FinalMarsAutomation.StepDefinitions
         public void WhenIAddInvalidLanguageIntoUserProfile(string language, string level)
         {
             negativeLanguagePageObject.AddLanguage(language, level);
-            
+
         }
 
         [Then(@"Invalid language should not be added '([^']*)','([^']*)'")]
@@ -44,23 +45,24 @@ namespace FinalMarsAutomation.StepDefinitions
                 Assert.AreEqual(language, newLanguage, "Actual language and expected language do not match");
                 Assert.AreEqual(level, newLevel, "Actual level and expected level do not match");
             }
+
             else
             {
                 Console.WriteLine("Check error");
             }
-
         }
+
 
         [When(@"I Update invalid language '([^']*)','([^']*)' into user profile")]
         public void WhenIUpdateInvalidLanguageIntoUserProfile(string language, string level)
         {
-        negativeLanguagePageObject.UpdateLanguage(language, level);
+            negativeLanguagePageObject.UpdateLanguage(language, level);
         }
 
         [Then(@"Invalid language should not be updated '([^']*)','([^']*)'")]
         public void ThenInvalidLanguageShouldNotBeUpdated(string language, string level)
         {
-            //Assertion of updated language
+
             string updatedLanguage = negativeLanguagePageObject.GetVerifyUpdateLanguage();
             string updatedLevel = negativeLanguagePageObject.GetVerifyUpdateLevel();
             if (language == updatedLanguage && level == updatedLevel)
@@ -72,7 +74,12 @@ namespace FinalMarsAutomation.StepDefinitions
             {
                 Console.WriteLine("Check error");
             }
+        }
+
 
         }
-    }
 }
+    
+
+
+

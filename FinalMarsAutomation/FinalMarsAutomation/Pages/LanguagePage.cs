@@ -34,19 +34,21 @@ namespace FinalMarsAutomation.Pages
             addNewButton.Click();
 
             // enter a language and level
+            
             enterLanguageText.SendKeys(language);
             selectLevel.SendKeys(level);
             addButton.Click();
+            Thread.Sleep(3000);
            
         }
         public String GetVerifyLanguageAdd()
         {
-            Thread.Sleep(2000);
+           
             return newLanguageAdded.Text;
         }
         public String GetVerifyLevelAdd()
         {
-            Thread.Sleep(2000);
+            
             return levelAdded.Text;
         }
 
@@ -65,11 +67,12 @@ namespace FinalMarsAutomation.Pages
            // select the elemnt from drop down 
             SelectElement element = new SelectElement(getLevelTextDropdown);
             element.SelectByText(level);
-            Thread.Sleep(2000);
+            //Thread.Sleep(2000);
 
             
-            finalUpdateButton.Click();                                  
+            finalUpdateButton.Click();
             Thread.Sleep(3000);
+            
         }
         public String GetVerifyLanguageUpdated()
         {
@@ -79,9 +82,8 @@ namespace FinalMarsAutomation.Pages
         }
         public string GetVerifyLevelUpdated()
         {
-            //retrieve updated level
+
             Thread.Sleep(2000);
-            
             //return it as a text
             return updatedLevelTextDdown.Text;
         }
